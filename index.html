@@ -1,0 +1,324 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="قعدة أسنانجية — بودكاست مع د. جوزيف شنودة عن طب الأسنان بين مصر وأمريكا.">
+<meta name="theme-color" content="#08151A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="قعدة أسنانجية">
+<meta property="og:description" content="بودكاست مع د. جوزيف شنودة عن طب الأسنان بين مصر وأمريكا.">
+<meta property="og:url" content="https://asnangeya.com/">
+<meta property="og:image" content="https://asnangeya.com/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="cover.jpg">
+<link rel="canonical" href="https://asnangeya.com/">
+<title>قعدة أسنانجية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@700;900&display=swap">
+
+<style>
+:root{
+  /* neutrals pulled toward the cover art's teal (#12505F) */
+  --ground:#08151A;
+  --ground-2:#0B1D24;
+  --surface:#102630;
+  --surface-hi:#16323E;
+  --line:#1C3B47;
+  --teal:#12505F;
+  --gold:#D3A95F;
+  --gold-hi:#F0CE8E;
+  --ivory:#EAE3D6;
+  --muted:#8AA3AC;
+  --muted-dim:#5A757F;
+  --r:16px;
+  --col:460px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  direction:rtl;
+  background:var(--ground);
+  color:var(--ivory);
+  font-family:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(115% 55% at 50% -8%, rgba(18,80,95,.55), transparent 64%),
+    radial-gradient(80% 40% at 50% 4%, rgba(211,169,95,.13), transparent 60%),
+    linear-gradient(180deg,var(--ground-2),var(--ground) 58%);
+  pointer-events:none;
+  z-index:0;
+}
+.wrap{
+  position:relative;z-index:1;
+  width:100%;max-width:var(--col);margin:0 auto;
+  padding:44px 22px 40px;
+  display:flex;flex-direction:column;gap:32px;
+}
+
+/* ---------- hero ---------- */
+.hero{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;position:relative}
+.eq{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:340px;height:206px;opacity:.55;pointer-events:none}
+.cover{
+  position:relative;
+  width:132px;height:132px;
+  border-radius:27px;padding:2px;
+  background:linear-gradient(150deg,var(--gold-hi),rgba(211,169,95,.2) 48%,rgba(211,169,95,.6));
+  box-shadow:0 20px 46px -14px rgba(0,0,0,.75), 0 0 0 1px rgba(240,206,142,.14);
+}
+.cover img{width:100%;height:100%;border-radius:25px;object-fit:cover;display:block}
+
+h1{
+  font-family:"Noto Kufi Arabic",sans-serif;font-weight:900;
+  font-size:32px;line-height:1.35;letter-spacing:-.01em;margin:0;
+  text-wrap:balance;
+  background:linear-gradient(180deg,#FFF6E2,#D8B677);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.host{margin:0;font-size:13.5px;font-weight:500;color:var(--gold);letter-spacing:.01em}
+.tagline{margin:0;max-width:36ch;font-size:14.5px;color:var(--muted);text-wrap:balance}
+.handle{
+  display:inline-flex;align-items:center;gap:6px;margin:0;
+  font-size:13px;font-weight:500;color:var(--muted-dim);
+  text-decoration:none;direction:ltr;
+}
+.handle:hover,.handle:focus-visible{color:var(--gold-hi)}
+
+/* ---------- featured episode ---------- */
+.ep{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 16px;border-radius:var(--r);
+  text-decoration:none;color:var(--ivory);
+  background:linear-gradient(140deg,rgba(211,169,95,.16),rgba(18,80,95,.3));
+  border:1px solid rgba(211,169,95,.36);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.ep:hover,.ep:focus-visible{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 14px 30px -18px #000;outline:none}
+.ep:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.play{
+  flex:none;width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--gold);color:#0B1A20;
+}
+.play svg{width:17px;height:17px;margin-inline-start:2px}
+.ep-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.ep-kicker{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.ep-title{font-size:14.5px;font-weight:600;line-height:1.4}
+.ep-meta{font-size:11.5px;color:var(--muted)}
+
+/* ---------- sections ---------- */
+.section{display:flex;flex-direction:column;gap:12px}
+.label{
+  display:flex;align-items:center;gap:12px;margin:0;
+  font-size:11px;font-weight:600;letter-spacing:.16em;
+  color:var(--muted-dim);text-transform:uppercase;
+}
+.label::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.list{display:flex;flex-direction:column;gap:10px}
+.row{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;border-radius:var(--r);
+  background:var(--surface);border:1px solid var(--line);
+  color:var(--ivory);text-decoration:none;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.row:hover,.row:focus-visible{
+  background:var(--surface-hi);border-color:rgba(211,169,95,.45);
+  transform:translateY(-2px);box-shadow:0 12px 26px -16px rgba(0,0,0,.9);outline:none;
+}
+.row:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.row:active{transform:translateY(0)}
+.ico{
+  flex:none;width:38px;height:38px;border-radius:11px;
+  display:grid;place-items:center;
+  background:#061014;border:1px solid var(--line);overflow:hidden;
+}
+.ico svg{width:20px;height:20px;display:block}
+.ico.bleed svg{width:38px;height:38px}
+.row-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.row-name{font-size:15px;font-weight:600;line-height:1.35}
+.row-sub{font-size:12px;color:var(--muted);line-height:1.4}
+.chev{flex:none;width:16px;height:16px;color:var(--muted-dim);transition:color .18s ease,transform .18s ease}
+.row:hover .chev{color:var(--gold);transform:translateX(-3px)}
+
+/* not-yet-live rows read as a different material, not just dimmer */
+.row.soon{background:transparent;border-style:dashed;border-color:#1A343E;cursor:default}
+.row.soon:hover{transform:none;box-shadow:none;background:transparent;border-color:#1A343E}
+.row.soon .ico{background:transparent;opacity:.45}
+.row.soon .row-name{color:var(--muted);font-weight:500}
+.pill{
+  flex:none;font-size:10.5px;font-weight:600;letter-spacing:.06em;
+  padding:4px 10px;border-radius:999px;color:var(--gold);
+  background:rgba(211,169,95,.09);border:1px solid rgba(211,169,95,.26);white-space:nowrap;
+}
+
+.socials{display:flex;justify-content:center;gap:12px}
+.soc{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--line);color:var(--muted);
+  text-decoration:none;transition:color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.soc svg{width:20px;height:20px}
+.soc:hover,.soc:focus-visible{color:var(--gold-hi);border-color:rgba(211,169,95,.45);transform:translateY(-2px);outline:none}
+.soc:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+
+footer{text-align:center;font-size:11.5px;color:var(--muted-dim);letter-spacing:.03em}
+
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.anim{animation:rise .6s cubic-bezier(.22,.75,.3,1) both}
+@media (prefers-reduced-motion:reduce){
+  .anim{animation:none}
+  *{transition-duration:.01ms !important}
+}
+@media (max-width:380px){
+  h1{font-size:27px}
+  .wrap{padding:34px 16px 32px}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="hero anim" style="animation-delay:.02s">
+    <canvas class="eq" id="eq" aria-hidden="true"></canvas>
+    <div class="cover"><img src="cover.jpg" alt="غلاف بودكاست قعدة أسنانجية"></div>
+    <h1>قعدة أسنانجية</h1>
+    <p class="host">مع د. جوزيف شنودة</p>
+    <p class="tagline">طب الأسنان من زاوية تانية — مش نصايح طبية، لكن قعدة حقيقية عن حياة الدكتور وشغله بين مصر وأمريكا.</p>
+    <a class="handle" href="https://www.instagram.com/a3detasnangeya/" target="_blank" rel="noopener">@a3detasnangeya</a>
+  </header>
+
+  <a class="ep anim" style="animation-delay:.10s" href="https://rss.com/podcasts/a3detasnangeyapodcast/3091463" target="_blank" rel="noopener">
+    <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6c0 .9 1 1.4 1.7.9l10.1-6.8a1.1 1.1 0 0 0 0-1.8L9.7 4.3c-.7-.5-1.7 0-1.7.9Z" transform="scale(-1,1) translate(-24,0)"/></svg></span>
+    <span class="ep-text">
+      <span class="ep-kicker">أحدث حلقة</span>
+      <span class="ep-title">أمريكا ولا مصر؟ — America or Egypt</span>
+      <span class="ep-meta">٢٦ دقيقة</span>
+    </span>
+    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </a>
+
+  <section class="section anim" style="animation-delay:.18s">
+    <h2 class="label">استمع الآن</h2>
+    <div class="list">
+
+      <a class="row" href="https://rss.com/podcasts/a3detasnangeyapodcast/" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="#F58220"><circle cx="5.5" cy="18.5" r="2.5"/><path d="M3 10.2a1.6 1.6 0 0 1 1.7-1.6A12.4 12.4 0 0 1 16.4 20.3a1.6 1.6 0 0 1-3.2.2A9.2 9.2 0 0 0 4.6 11.8 1.6 1.6 0 0 1 3 10.2Zm0-6.6A1.6 1.6 0 0 1 4.7 2 19 19 0 0 1 23 20.3a1.6 1.6 0 0 1-3.2.1A15.8 15.8 0 0 0 4.6 5.2 1.6 1.6 0 0 1 3 3.6Z"/></svg></span>
+        <span class="row-text">
+          <span class="row-name">استمع على RSS.com</span>
+          <span class="row-sub">كل الحلقات — شغّال دلوقتي</span>
+        </span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+
+      <a class="row" href="https://media.rss.com/a3detasnangeyapodcast/feed.xml" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8AA3AC" stroke-width="1.9" stroke-linecap="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.8" fill="#8AA3AC" stroke="none"/></svg></span>
+        <span class="row-text">
+          <span class="row-name">RSS Feed</span>
+          <span class="row-sub">ضيفه في أي تطبيق بودكاست</span>
+        </span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="section anim" style="animation-delay:.26s">
+    <h2 class="label">قريبًا على</h2>
+    <div class="list">
+
+      <div class="row soon">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="#8B5CF6"><path d="M12 1.5a5 5 0 0 1 5 5v3.2a5 5 0 0 1-10 0V6.5a5 5 0 0 1 5-5Zm7.6 8.3a1 1 0 0 1 2 0 9.6 9.6 0 0 1-8.6 9.55V22a1 1 0 1 1-2 0v-2.65A9.6 9.6 0 0 1 2.4 9.8a1 1 0 1 1 2 0 7.6 7.6 0 0 0 15.2 0Z"/></svg></span>
+        <span class="row-text"><span class="row-name">Apple Podcasts</span></span>
+        <span class="pill">قريبًا</span>
+      </div>
+
+      <div class="row soon">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4a.8.8 0 0 1-1.1.3c-3-1.8-6.7-2.2-11.1-1.2a.8.8 0 0 1-.3-1.5c4.8-1.1 9-.6 12.3 1.4a.8.8 0 0 1 .2 1Zm1.2-2.9a1 1 0 0 1-1.3.3c-3.4-2.1-8.5-2.7-12.5-1.5a1 1 0 1 1-.5-1.9c4.6-1.4 10.2-.7 14.1 1.7a1 1 0 0 1 .2 1.4Zm.1-3a12.2 12.2 0 0 0-6.4-1.6c-2.7 0-5 .4-6.9 1a1.2 1.2 0 1 1-.7-2.3c2.2-.7 4.7-1.1 7.6-1.1 2.7 0 5.4.5 7.6 1.9a1.2 1.2 0 0 1-1.2 2Z"/></svg></span>
+        <span class="row-text"><span class="row-name">Spotify</span></span>
+        <span class="pill">قريبًا</span>
+      </div>
+
+      <div class="row soon">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="#FF0033"><path d="M23 12s0-3.9-.5-5.7a3 3 0 0 0-2.1-2.1C18.6 3.6 12 3.6 12 3.6s-6.6 0-8.4.6a3 3 0 0 0-2.1 2.1C1 8.1 1 12 1 12s0 3.9.5 5.7a3 3 0 0 0 2.1 2.1c1.8.6 8.4.6 8.4.6s6.6 0 8.4-.6a3 3 0 0 0 2.1-2.1C23 15.9 23 12 23 12ZM9.9 15.4V8.6l5.8 3.4-5.8 3.4Z"/></svg></span>
+        <span class="row-text"><span class="row-name">YouTube</span></span>
+        <span class="pill">قريبًا</span>
+      </div>
+
+      <div class="row soon">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="#25D1DA"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 3.4c.6 0 1 .5 1 1v11.2a1 1 0 1 1-2 0V6.4c0-.5.4-1 1-1Zm-3.6 3c.6 0 1 .4 1 1v5.2a1 1 0 1 1-2 0V9.4c0-.6.4-1 1-1Zm7.2 0c.6 0 1 .4 1 1v5.2a1 1 0 1 1-2 0V9.4c0-.6.4-1 1-1Z"/></svg></span>
+        <span class="row-text"><span class="row-name">Amazon Music</span></span>
+        <span class="pill">قريبًا</span>
+      </div>
+
+      <div class="row soon">
+        <span class="ico bleed"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="22" fill="#000"/><g fill="none" stroke-width="6.8" stroke-linecap="butt"><path d="M84.00 88 L84.00 42 A34.00 34.00 0 1 0 30.99 70.19" stroke="#EAFF00"/><path d="M76.40 88 L76.40 42 A26.40 26.40 0 1 0 35.24 63.89" stroke="#00E23C"/><path d="M68.80 88 L68.80 42 A18.80 18.80 0 1 0 39.49 57.59" stroke="#00CFF0"/><path d="M61.20 88 L61.20 42 A11.20 11.20 0 1 0 43.74 51.29" stroke="#FF00E0"/></g></svg></span>
+        <span class="row-text"><span class="row-name">Anghami</span></span>
+        <span class="pill">قريبًا</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section anim" style="animation-delay:.34s">
+    <h2 class="label">تواصل معانا</h2>
+    <div class="socials">
+      <a class="soc" href="https://www.instagram.com/a3detasnangeya/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="soc" href="mailto:a3detasnangeya@gmail.com" aria-label="البريد الإلكتروني">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>© <span id="yr">2026</span> قعدة أسنانجية</footer>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+(function(){
+  var c = document.getElementById('eq');
+  if(!c) return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = c.getContext('2d');
+  var BARS = 34, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 340, H = 206;
+  c.width = W * dpr; c.height = H * dpr;
+  ctx.scale(dpr, dpr);
+
+  var phase = [];
+  for (var i = 0; i < BARS; i++) phase.push(Math.random() * Math.PI * 2);
+
+  function frame(t){
+    ctx.clearRect(0, 0, W, H);
+    var gap = W / BARS, bw = 2;
+    for (var i = 0; i < BARS; i++){
+      // taper toward the centre so the cover art sits in clear space
+      var d = Math.abs(i - (BARS - 1) / 2) / ((BARS - 1) / 2);
+      var edge = Math.pow(d, 1.7);
+      var amp = (0.5 + 0.5 * Math.sin(t / 1400 + phase[i] + i * 0.35)) * H * 0.42 * edge;
+      var h = 6 + amp;
+      var x = i * gap + (gap - bw) / 2;
+      var y = (H - h) / 2;
+      var g = ctx.createLinearGradient(0, y, 0, y + h);
+      g.addColorStop(0, 'rgba(211,169,95,0)');
+      g.addColorStop(0.5, 'rgba(240,206,142,' + (0.14 + 0.28 * edge).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(211,169,95,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(x, y, bw, h);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
