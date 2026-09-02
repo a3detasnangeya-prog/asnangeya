@@ -199,12 +199,12 @@ footer{text-align:center;font-size:11.5px;color:var(--muted-dim);letter-spacing:
     <a class="handle" href="https://www.instagram.com/a3detasnangeya/" target="_blank" rel="noopener">@a3detasnangeya</a>
   </header>
 
-  <a class="ep anim" style="animation-delay:.10s" href="https://rss.com/podcasts/a3detasnangeyapodcast/3091463" target="_blank" rel="noopener">
+  <a class="ep anim" id="epLink" style="animation-delay:.10s" href="https://rss.com/podcasts/a3detasnangeyapodcast/3091463" target="_blank" rel="noopener">
     <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6c0 .9 1 1.4 1.7.9l10.1-6.8a1.1 1.1 0 0 0 0-1.8L9.7 4.3c-.7-.5-1.7 0-1.7.9Z" transform="scale(-1,1) translate(-24,0)"/></svg></span>
     <span class="ep-text">
       <span class="ep-kicker">أحدث حلقة</span>
-      <span class="ep-title">أمريكا ولا مصر؟ — America or Egypt</span>
-      <span class="ep-meta">٢٦ دقيقة</span>
+      <span class="ep-title" id="epTitle">أمريكا ولا مصر؟ — America or Egypt</span>
+      <span class="ep-meta" id="epMeta">٢٦ دقيقة</span>
     </span>
     <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
   </a>
@@ -300,6 +300,85 @@ footer{text-align:center;font-size:11.5px;color:var(--muted-dim);letter-spacing:
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* --- Latest episode: read straight from the RSS feed on every page load.
+   The card's HTML holds the last-known episode, so it renders instantly and
+   still shows something if the network or the feed fails. --- */
+(function(){
+  var FEED = 'https://media.rss.com/a3detasnangeyapodcast/feed.xml';
+  var link = document.getElementById('epLink'),
+      title = document.getElementById('epTitle'),
+      meta  = document.getElementById('epMeta');
+  if (!link || !title || !meta) return;
+
+  function arabicDigits(s){
+    return String(s).replace(/[0-9]/g, function(d){ return '٠١٢٣٤٥٦٧٨٩'[d]; });
+  }
+  function minutesFrom(raw){
+    if (!raw) return null;
+    raw = raw.trim();
+    var secs;
+    if (raw.indexOf(':') > -1){
+      var parts = raw.split(':').map(Number);
+      if (parts.some(isNaN)) return null;
+      secs = parts.reduce(function(a,b){ return a * 60 + b; }, 0);
+    } else {
+      secs = Number(raw);
+      if (isNaN(secs)) return null;
+    }
+    var m = Math.round(secs / 60);
+    return m > 0 ? arabicDigits(m) + ' دقيقة' : null;
+  }
+  function arabicDate(raw){
+    var d = new Date(raw);
+    if (isNaN(d)) return null;
+    try {
+      return new Intl.DateTimeFormat('ar-EG', {day:'numeric', month:'long', year:'numeric'}).format(d);
+    } catch (e) { return null; }
+  }
+  function text(parent, tag){
+    var el = parent.getElementsByTagName(tag)[0];
+    return el && el.textContent ? el.textContent.trim() : '';
+  }
+
+  fetch(FEED, {cache: 'no-cache'})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function(xml){
+      var doc = new DOMParser().parseFromString(xml, 'application/xml');
+      if (doc.getElementsByTagName('parsererror').length) throw new Error('bad xml');
+
+      var items = Array.prototype.slice.call(doc.getElementsByTagName('item'));
+      if (!items.length) return;
+
+      // newest first — don't trust feed order
+      items.sort(function(a,b){
+        return new Date(text(b,'pubDate')) - new Date(text(a,'pubDate'));
+      });
+
+      // skip anything scheduled for the future
+      var now = Date.now();
+      var latest = items.filter(function(it){
+        var t = new Date(text(it,'pubDate')).getTime();
+        return isNaN(t) || t <= now;
+      })[0] || items[0];
+
+      var t = text(latest, 'title');
+      var href = text(latest, 'link');
+      if (t) title.textContent = t;                       // textContent, never innerHTML
+      if (/^https?:\/\//i.test(href)) link.href = href;
+
+      var bits = [];
+      var num = text(latest, 'episode');                  // itunes:episode / podcast:episode
+      if (num) bits.push('الحلقة ' + arabicDigits(num));
+      var mins = minutesFrom(text(latest, 'duration'));
+      if (mins) bits.push(mins);
+      var when = arabicDate(text(latest, 'pubDate'));
+      if (when) bits.push(when);
+      if (bits.length) meta.textContent = bits.join(' · ');
+    })
+    .catch(function(){ /* keep whatever is already in the card */ });
+})();
+
 
 (function(){
   var c = document.getElementById('eq');
